@@ -35,14 +35,14 @@ insert into bancos (nombre_banco, direccion_banco, telefono) values ('Davivienda
 
 
 insert into transacciones (id, monto_transaccion ,cuenta_llegada ,cuenta_salida ,id_usuario ,banco_transferencia ,fecha_transaccion ,sede_origen )
-	values ('12345','1000000','3123124','1111111','123','1','2000-01-01','1');
+	values ('12345','1000000','3123124','1111111','123','1','2022-01-01','1');
 insert into transacciones (id, monto_transaccion ,cuenta_llegada ,cuenta_salida ,id_usuario ,banco_transferencia ,fecha_transaccion ,sede_origen )
-	values ('12346','10000','3123124','1111111','123','1','2000-02-01','1');
+	values ('12346','10000','3123124','1111111','123','1','2022-02-01','1');
 insert into transacciones (id, monto_transaccion ,cuenta_llegada ,cuenta_salida ,id_usuario ,banco_transferencia ,fecha_transaccion ,sede_origen )
-	values ('12347','50000','12361342','1111111','123','1','2000-02-10','1');
+	values ('12347','50000','12361342','1111111','123','1','2022-02-10','1');
 insert into transacciones (id, monto_transaccion ,cuenta_llegada ,cuenta_salida ,id_usuario ,banco_transferencia ,fecha_transaccion ,sede_origen )
-	values ('12348','12000000','12324123','2222222','1234','1','2000-01-01','1');
+	values ('12348','12000000','12324123','2222222','1234','1','2022-01-01','1');
 insert into transacciones (id, monto_transaccion ,cuenta_llegada ,cuenta_salida ,id_usuario ,banco_transferencia ,fecha_transaccion ,sede_origen )
-	values ('12349','190000','1274123','2222222','1234','1','2000-03-01','1');
+	values ('12349','190000','1274123','2222222','1234','1','2022-03-01','1');
 insert into transacciones (id, monto_transaccion ,cuenta_llegada ,cuenta_salida ,id_usuario ,banco_transferencia ,fecha_transaccion ,sede_origen )
-	values ('12350','10000','3123124','1111111','123','1','2000-01-07','1');
+	values ('12350','10000','3123124','1111111','123','1','2022-01-07','1');
