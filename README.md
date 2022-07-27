@@ -1,1 +1,1 @@
-# curso_programacion_industria
+# Curso programacion para la industria.
