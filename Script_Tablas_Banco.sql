@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS public.transacciones
     monto_transaccion decimal(10,2),
     cuenta_llegada integer,
     cuenta_salida integer,
-    id_usuario integer,
+    id_clientes integer,
     banco_transferencia serial,
     fecha_transaccion date,
     sede_origen serial,
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS public.transacciones
         ON UPDATE CASCADE
         ON DELETE CASCADE
         NOT VALID,
-    CONSTRAINT transacciones_clientes_fkey FOREIGN KEY (id_usuario)
+    CONSTRAINT transacciones_clientes_fkey FOREIGN KEY (id_clientes)
         REFERENCES public.clientes (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
