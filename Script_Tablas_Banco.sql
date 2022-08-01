@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS public.cuentas
     id_tipo_cuenta serial,
     monto_cuenta decimal(10,2),
     fecha_creacion date,
+    fecha_caducidad date,
     CONSTRAINT cuentas_pkey PRIMARY KEY (id),
     CONSTRAINT cuentas_tipo_fkey FOREIGN KEY (id_tipo_cuenta)
         REFERENCES public.tipo_cuenta (id) MATCH SIMPLE
@@ -42,9 +43,9 @@ CREATE TABLE IF NOT EXISTS public.clientes
     direccion_residencia varchar(100),
     fecha_nacimiento date,
     telefono integer,
-    cuenta_bancaria serial,
+    id_cuenta serial,
     CONSTRAINT clientes_pkey PRIMARY KEY (id),
-    CONSTRAINT clientes_cuentas_fkey FOREIGN KEY (cuenta_bancaria) REFERENCES public.cuentas (id) MATCH SIMPLE
+    CONSTRAINT clientes_cuentas_fkey FOREIGN KEY (id_cuenta) REFERENCES public.cuentas (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
         NOT VALID
@@ -82,14 +83,14 @@ CREATE TABLE IF NOT EXISTS public.empleados
     telefono integer,
     fecha_nacimiento date,
     id_cargo integer,
-    sede_trabajo serial,
+    id_sede serial,
     CONSTRAINT empleados_pkey PRIMARY KEY (id),
     CONSTRAINT empleados_cargos_fkey FOREIGN KEY (id_cargo)
         REFERENCES public.cargos (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
         NOT VALID,
-    CONSTRAINT empleados_sedes_fkey FOREIGN KEY (sede_trabajo)
+    CONSTRAINT empleados_sedes_fkey FOREIGN KEY (id_sede)
         REFERENCES public.sedes (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -100,14 +101,14 @@ CREATE TABLE IF NOT EXISTS public.transacciones
 (
     id integer NOT NULL,
     monto_transaccion decimal(10,2),
-    cuenta_llegada integer,
-    cuenta_salida integer,
+    id_cuenta_llegada integer,
+    id_cuenta integer,
     id_clientes integer,
-    banco_transferencia serial,
+    id_banco serial,
     fecha_transaccion date,
     sede_origen serial,
     CONSTRAINT transacciones_pkey PRIMARY KEY (id),
-    CONSTRAINT transacciones_bancos_fkey FOREIGN KEY (banco_transferencia)
+    CONSTRAINT transacciones_bancos_fkey FOREIGN KEY (id_banco)
         REFERENCES public.bancos (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -117,7 +118,7 @@ CREATE TABLE IF NOT EXISTS public.transacciones
         ON UPDATE CASCADE
         ON DELETE CASCADE
         NOT VALID,
-    CONSTRAINT transacciones_cuentas_fkey FOREIGN KEY (cuenta_salida)
+    CONSTRAINT transacciones_cuentas_fkey FOREIGN KEY (id_cuenta)
         REFERENCES public.cuentas (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -129,4 +130,3 @@ CREATE TABLE IF NOT EXISTS public.transacciones
         NOT valid
         
 );
-
